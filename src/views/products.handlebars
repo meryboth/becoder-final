@@ -1,0 +1,16 @@
+<section>
+  <h1>Productos en stock:</h1>
+  <ul>
+    {{#each productos}}
+        <li><p>{{this.title}}</p></li>
+        <p>{{this.price}}</p>
+    {{/each}}
+</ul>
+    {{#if hasPrevPage}}
+    <a href="?page={{prevPage}}">Anterior</a>
+    {{/if}}
+    {{#if hasNextPage}}
+    <a href="?page={{nextPage}}">Siguiente</a>
+    {{/if}}
+    <p>Pagina {{ currentPage }} de {{totalPage}}</p>
+</section>

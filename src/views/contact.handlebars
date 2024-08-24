@@ -1,0 +1,17 @@
+<section class="flex justify-center items-center h-screen bg-gray-100">
+  <div class="bg-white p-8 rounded shadow-md w-full sm:w-96">
+    <h1 class="text-3xl font-semibold mb-4">Contacto</h1>
+    <form action="/email/enviarmensaje" method="POST">
+      <div class="mb-4">
+        <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico:</label>
+        <input type="email" id="email" name="email" placeholder="Correo electrónico" required class="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+      </div>
+      <div class="mb-4">
+        <label for="message" class="block text-sm font-medium text-gray-700">Mensaje:</label>
+        <textarea id="message" name="message" required class="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" rows="4"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-indigo-500 text-white p-2 rounded-md hover:bg-indigo-600 transition duration-300">Enviar</button>
+    </form>
+  </div>
+</section>
+
