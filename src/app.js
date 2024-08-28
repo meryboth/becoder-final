@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import session from 'express-session';
+import { Server as socketIo } from 'socket.io';
 import exphbs from 'express-handlebars';
 import cookieParser from 'cookie-parser';
 import './database.js';
@@ -94,6 +95,18 @@ console.log('Server time:', new Date());
 
 /* listen */
 const PORT = config.port;
-app.listen(PORT, () => {
+const httpServer = app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+});
+
+const io = new socketIo(httpServer);
+
+let messages = [];
+
+io.on('connection', (socket) => {
+  console.log('Nuevo usuario conectado');
+  socket.on('message', (data) => {
+    messages.push(data);
+    io.emit('messagesLogs', messages);
+  });
 });

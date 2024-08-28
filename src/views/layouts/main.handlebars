@@ -5,8 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ecommerce</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <!-- Swiper.js JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
 </head>
 <body>
+   <body class="bg-gray-100 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <div class="flex space-x-4">
+                <a href="/" class="text-s font-semibold hover:text-gray-600">Home</a>
+                <a href="/products" class="text-s hover:text-gray-600">Productos</a>
+                <a href="/chat" class="text-s hover:text-gray-600">Chat Comunidad</a>
+                <a href="/login" class="text-s hover:text-gray-600">Cuenta</a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="/carts" class="text-gray-800 hover:text-gray-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+    <path d="M8 16H15.2632C19.7508 16 20.4333 13.1808 21.261 9.06908C21.4998 7.88311 21.6192 7.29013 21.3321 6.89507C21.045 6.5 20.4947 6.5 19.3941 6.5H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M8 16L5.37873 3.51493C5.15615 2.62459 4.35618 2 3.43845 2H2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M8.88 16H8.46857C7.10522 16 6 17.1513 6 18.5714C6 18.8081 6.1842 19 6.41143 19H17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="10.5" cy="20.5" r="1.5" stroke="currentColor" stroke-width="1.5" />
+    <circle cx="17.5" cy="20.5" r="1.5" stroke="currentColor" stroke-width="1.5" />
+</svg>
+                </a>
+                <a href="/profile" class="text-gray-800 hover:text-gray-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" />
+    <path d="M7.5 17C9.8317 14.5578 14.1432 14.4428 16.5 17M14.4951 9.5C14.4951 10.8807 13.3742 12 11.9915 12C10.6089 12 9.48797 10.8807 9.48797 9.5C9.48797 8.11929 10.6089 7 11.9915 7C13.3742 7 14.4951 8.11929 14.4951 9.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+</svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+   <main class="">
     {{{body}}}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white shadow-md mt-8">
+        <div class="container mx-auto px-4 py-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <div>
+                <h3 class="font-semibold">Sobre nosotros</h3>
+                <ul class="mt-2 space-y-2">
+                    <li><a href="#" class="hover:underline">Nuestra historia</a></li>
+                    <li><a href="#" class="hover:underline">Misión y visión</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-semibold">Ayuda</h3>
+                <ul class="mt-2 space-y-2">
+                    <li><a href="#" class="hover:underline">Preguntas frecuentes</a></li>
+                    <li><a href="#" class="hover:underline">Soporte</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-semibold">Cuenta</h3>
+                <ul class="mt-2 space-y-2">
+                    <li><a href="#" class="hover:underline">Mi perfil</a></li>
+                    <li><a href="#" class="hover:underline">Historial de pedidos</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="font-semibold">Redes sociales</h3>
+                <ul class="mt-2 space-y-2">
+                    <li><a href="#" class="hover:underline">Instagram</a></li>
+                    <li><a href="#" class="hover:underline">Facebook</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

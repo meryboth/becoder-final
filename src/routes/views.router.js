@@ -7,18 +7,45 @@ const ProductModel = mongoose.model('products', productSchema);
 
 class ViewsRouter extends CustomRouter {
   init() {
-    this.get('/', this.getProducts);
+    /* Home */
+    this.get('/', this.getProductsHome);
+    /* Products */
+    this.get('/products', this.getProducts);
     this.get('/contact', this.renderContact);
     this.get('/carts/:cid', this.getCart);
     this.get('/login', this.renderLogin);
     this.get('/register', this.renderRegister);
     this.get('/profile', authenticateJWT, this.renderProfile);
     this.get('/admin', authenticateJWT, isAdmin, this.renderAdmin);
+    this.get('/chat', this.renderChat);
     /* reset password views */
     this.get('/resetpassword', this.renderResetPassword);
     this.get('/newpassword', this.renderNewPassword);
     this.get('/confirmationnewpassword', this.renderConfirmationNewPassword);
     this.get('/confirmemailsent', this.renderConfirmEmailSent);
+  }
+
+  async getProductsHome(req, res) {
+    try {
+      // Fetch the last 6 products sorted by creation date (assuming you have a `createdAt` field)
+      const productos = await ProductModel.find()
+        .sort({ createdAt: -1 })
+        .limit(6);
+
+      // Map the products to remove the `_id` field
+      const productosMap = productos.map((producto) => {
+        const { _id, ...rest } = producto.toObject();
+        return rest;
+      });
+
+      res.render('home', {
+        productos: productosMap,
+        showViewAllButton: true, // This will indicate if the "Ver todos" button should be shown
+      });
+    } catch (error) {
+      console.error('Failed to fetch products', error);
+      res.sendServerError('Internal Server Error. Failed to fetch products.');
+    }
   }
 
   async getProducts(req, res) {
@@ -103,6 +130,10 @@ class ViewsRouter extends CustomRouter {
 
   renderConfirmEmailSent(req, res) {
     res.render('confirmEmailSent');
+  }
+
+  renderChat(req, res) {
+    res.render('chat');
   }
 }
 
